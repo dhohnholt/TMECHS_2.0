@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --color-background: #ebf2f2; /* tmechs-light */
+    --color-text: #014040; /* tmechs-forest */
+    --color-card: white;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    color-scheme: dark;
+    --color-background: #0c2828; /* tmechs-dark */
+    --color-text: #e6f0f0; /* tmechs-light adjusted for contrast */
+    --color-card: #1a3c3c; /* darker tmechs-forest shade */
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply rounded-md bg-tmechs-forest px-4 py-2 text-white transition-all duration-300 hover:scale-105 hover:bg-tmechs-forest/90 focus:outline-none focus:ring-2 focus:ring-tmechs-forest focus:ring-offset-2 dark:bg-tmechs-sage dark:hover:bg-tmechs-sage/80 dark:focus:ring-tmechs-sage;
+  }
+
+  .btn-secondary {
+    @apply rounded-md border border-tmechs-forest px-4 py-2 text-tmechs-forest transition-all duration-300 hover:scale-105 hover:bg-tmechs-forest/10 focus:outline-none focus:ring-2 focus:ring-tmechs-forest focus:ring-offset-2 dark:border-tmechs-light dark:text-tmechs-light dark:hover:bg-tmechs-light/20 dark:focus:ring-tmechs-light;
+  }
+
+  .btn-danger {
+    @apply rounded-md bg-red-600 px-4 py-2 text-white transition-all duration-300 hover:scale-105 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:bg-red-500 dark:hover:bg-red-600;
+  }
+
+  .btn-sage {
+    @apply rounded-md bg-tmechs-sage px-4 py-2 text-tmechs-dark transition-all duration-300 hover:scale-105 hover:bg-tmechs-sage/90 focus:outline-none focus:ring-2 focus:ring-tmechs-sage focus:ring-offset-2 dark:bg-tmechs-dark dark:text-tmechs-light dark:hover:bg-tmechs-dark/80;
+  }
+
+  .btn-light {
+    @apply rounded-md bg-tmechs-light px-4 py-2 text-tmechs-dark transition-all duration-300 hover:scale-105 hover:bg-tmechs-light/90 focus:outline-none focus:ring-2 focus:ring-tmechs-light focus:ring-offset-2 dark:bg-tmechs-forest dark:text-white dark:hover:bg-tmechs-forest/80;
+  }
+
+  .btn-dark {
+    @apply rounded-md bg-tmechs-dark px-4 py-2 text-white transition-all duration-300 hover:scale-105 hover:bg-tmechs-dark/90 focus:outline-none focus:ring-2 focus:ring-tmechs-dark focus:ring-offset-2 dark:bg-tmechs-sage dark:text-tmechs-dark dark:hover:bg-tmechs-sage/80;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-gray-300 bg-[var(--color-card)] text-[var(--color-text)] shadow-sm transition-all duration-300 focus:border-tmechs-forest focus:ring-2 focus:ring-tmechs-forest/50 dark:border-tmechs-forest/50 dark:focus:border-tmechs-sage dark:focus:ring-tmechs-sage/50;
+  }
+}
+
+@layer utilities {
+  /* Dark mode override for tmechs-page-gradient defined in tailwind.config.js */
+  .dark .bg-tmechs-page-gradient {
+    background-image: linear-gradient(to bottom, #1a3c3c, #081c1c);
+  }
+}
+
+/* Animations */
+@keyframes scan {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.animate-scan {
+  animation: scan 2s linear infinite;
+}
+
+/* React DatePicker Custom Styles */
+.react-datepicker {
+  @apply rounded-lg border border-gray-300 bg-[var(--color-card)] shadow-lg dark:border-tmechs-forest/50;
+}
+
+.react-datepicker__header {
+  @apply border-b border-gray-300 bg-[var(--color-card)] font-semibold text-[var(--color-text)] dark:border-tmechs-forest/50;
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day {
+  @apply text-[var(--color-text)];
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  @apply bg-tmechs-forest text-white;
+}
+
+.dark .react-datepicker__day--selected,
+.dark .react-datepicker__day--keyboard-selected {
+  @apply bg-tmechs-sage;
+}
+
+.react-datepicker__day--booked {
+  @apply bg-pink-200 text-pink-800 dark:bg-pink-800 dark:text-pink-200;
+}
+
+.react-datepicker__day--booked:hover {
+  @apply bg-pink-300 dark:bg-pink-700;
+}
+
+/* Add styles for available dates */
+.react-datepicker__day--available {
+  @apply rounded border border-tmechs-sage bg-tmechs-light/20 text-tmechs-forest dark:border-tmechs-sage dark:bg-tmechs-sage/40 dark:text-tmechs-light;
+}
+
+.react-datepicker__day--available:hover {
+  @apply bg-tmechs-sage/40 dark:bg-tmechs-sage/60;
+}
+
+/* Style disabled dates for clarity */
+.react-datepicker__day--disabled {
+  @apply cursor-not-allowed bg-gray-100 text-gray-400 dark:bg-gray-700 dark:text-gray-500;
+}
+
+.react-datepicker__navigation-icon::before {
+  @apply border-tmechs-forest dark:border-tmechs-sage;
+}
+
+.react-datepicker-popper {
+  z-index: 50;
+}
+
+.react-datepicker__month-select,
+.react-datepicker__year-select {
+  @apply border-gray-300 bg-[var(--color-card)] text-[var(--color-text)] dark:border-tmechs-forest/50;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
